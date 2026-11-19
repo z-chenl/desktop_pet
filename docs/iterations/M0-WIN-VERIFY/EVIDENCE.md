@@ -1,5 +1,9 @@
 # M0-WIN-VERIFY · Windows 验证证据
 
+**后续实施审核。** Work 对 `bb15a7534bdd1178372770e759bb1b68b6fdfd3f` 的结论为 A10 需整改；A01–A09 及 W06 保留本次审核结果。下文保留原提交中的 Codex 自测记录。[Work 实现审核报告与处置](REVIEW.md)
+
+## 原提交的 Codex 自测记录
+
 **Codex 实测结果：A01–A10 均有证据，待 Work 实施审核和用户验收。** 本轮由 03 操作本机 Electron 窗口，未使用模型或私聊数据。运行时间为 2026-11-20 00:48–01:04（UTC+08:00）。用户批准的方案提交为 `a7a9511ed20adf9a5a18db6a96009855e7e98885`，批准记录为 `a5403b263071091be349cf9f8793f07d90e4e9c2`。实际验证的修复代码为 `5257697aa5aef90baae6e8c42a8ec9ee1a287553`。含本证据的交付提交通过交接卡及[草稿 PR #1](https://github.com/z-chenl/desktop_pet/pull/1)定位。
 
 ## 环境与证据位置
