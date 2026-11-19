@@ -13,3 +13,10 @@ test-results/
 *.p12
 *.pfx
 .DS_Store
+
+# 本机迁移原件、私人评估导出和模型缓存
+/orange-cat-desktop-M0-v0.1.0.zip
+orange-cat-evaluation-private*.json
+.ollama/
+models/
+*.key
