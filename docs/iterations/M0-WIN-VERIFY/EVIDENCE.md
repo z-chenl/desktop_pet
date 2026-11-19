@@ -36,3 +36,26 @@ Windows 11 家庭版 x64（10.0.26300），i7-11800H，系统报告约 15.71 GiB
 - Electron 本地安装器首次下载在观察期间未完成。核对后仅结束本次安装器 PID 21648；其临时文件位于 `%TEMP%\electron-download-gAlh2e`。随后用 curl 下载同一官方发行 ZIP，158,296,013 字节，SHA-256 `2ba6223afa9121f42831fefe92c434334907540165294fc56697449d12e7cfe9`，与锁定 Electron 包的 checksums.json 一致。放入本轮 `electron-cache` 后原安装器执行成功，退出码 0。
 - 运行后按文件长度求和，独立 Node 目录 107,375,290 字节，`node_modules`（含 Electron）565,026,235 字节，`dist` 184,818 字节。npm 缓存、Electron 正常 profile 和临时文件保留在本机。模型调用与模型下载均为 0。
 - 本阶段没有用户实测结果。真实模型风格、断网对话、Windows 安装包、macOS 体验和最终桌宠形象／行为仍待各自验收。
+
+## A10 整改定向复现 · Codex 本机实测
+
+**03 复现通过，待 02 仅复核 A10。** 2026-11-20 01:41:56–01:44:33（UTC+08:00），Windows 11 x64，新进程 `pwsh -NoLogo -NoProfile`（7.6.9，PID 13456）。Work 的原审核目标为 `bb15a7534bdd1178372770e759bb1b68b6fdfd3f`；本次直接执行文档提交 `8635a814d6a683484fa8a9f2569e5e73bc4d6c08` 的 RUNBOOK 代码块，业务代码为 `5257697aa5aef90baae6e8c42a8ec9ee1a287553`。[逐次命令、拦截结果与窗口读数](A10-reproduction.txt)
+
+新终端原 Node 为 22.15.0。依次执行第 1 节、2.1、2.3 以及第 3 节的函数定义和三处调用。复用已安装的 Node 24.22.3、npm 11.19.1、Electron 45.4.1 及已有产物，跳过 2.2。统一解析的 `$exe` 为项目下 `node_modules\electron\dist\electron.exe`。首次创建 `test-results/M0-WIN-VERIFY/r1/20261120-014157/data`，随后全部正常启动复用该目录。仅开发入口自身按原脚本构建主进程和预加载，未重装依赖或重跑 A01–A09。
+
+| 正常操作 | 实际调用及窗口来源 | 窗口读取和收尾 |
+| --- | --- | --- |
+| 首次开发 | `Start-M0Verification -Mode Dev`，`http://127.0.0.1:5173/` | 01:42:59 读取本轮库，退出码 0 |
+| 同轮开发重启 | 再次执行 `Start-M0Verification -Mode Dev`，`http://127.0.0.1:5173/` | 01:43:50 读回同一路径，退出码 0 |
+| 构建产物 | `Start-M0Verification -Mode Product`，`pet://app/index.html` | 01:44:32 读回同一路径，退出码 0 |
+
+Codex 在每个已加载的真实窗口打开“记忆与交付 → 本地数据位置”，读数均以 `20261120-014157\data\orange-cat-lab.sqlite` 结尾。正常关闭后测试库均为 12,288 字节，检查未发现本项目 Electron／开发脚本进程或 5173 监听。
+
+| 启动前错误设置 | 实际操作（仅本次进程） | 首次开发 / 开发重启 / 产物 |
+| --- | --- | --- |
+| 环境变量缺失 | `Remove-Item Env:ORANGE_CAT_DATA_DIR` | 三处均抛出“ORANGE_CAT_DATA_DIR 为空” |
+| 指向其他测试目录 | `$env:ORANGE_CAT_DATA_DIR = $other`，其中 `$other` 是本轮新建的 `negative-other` | 三处均抛出“测试库路径与本轮不符” |
+| 本轮变量未设置 | `$run = $null` | 三处均抛出“尚未设置本轮运行目录” |
+| 预期 data 子目录不存在 | `$run = $other`，保留正确环境变量，`$other\data` 不存在 | 三处均抛出“本轮测试目录不存在” |
+
+每例都执行 RUNBOOK 对应的原调用。只计数的命令断点监测 `npm.cmd` 和 `Start-Process`；12 次拦截均命中预期错误，两条启动命令调用数均为 0。三次正常对照各记录一次启动调用。每例前后均检查进程和端口。负例结束时两个测试目录均为空；实际默认 `%APPDATA%\orange-cat-desktop\orange-cat-lab.sqlite` 及其 WAL、SHM、journal 全程各检查点均不存在。原始执行脚本、终端输出及窗口读数保存在本机 `test-results/M0-WIN-VERIFY/a10-review/20261120-014050/`。模型下载和模型 API 调用均为 0。

@@ -1,0 +1,36 @@
+Codex · Windows A10 定向复现
+通过受测 RUNBOOK 的原代码块启动。launchCalls 为两个进程启动命令的 PowerShell 断点计数。
+
+2026-11-20 01:41:56.948 +08:00 | pwsh 7.6.9 -NoProfile PID=13456; document=8635a814d6a683484fa8a9f2569e5e73bc4d6c08; original node=v22.15.0
+2026-11-20 01:41:57.922 +08:00 | Reused locked installation; node=v24.22.3 npm=11.19.1 Electron=45.4.1; exe=D:\tools\IdeaTool\project\desktop_pet\node_modules\electron\dist\electron.exe; run=D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157
+2026-11-20 01:41:58.090 +08:00 | Baseline: default=absent (db + sidecars); matchedPIDs=[] listen5173=False
+2026-11-20 01:41:58.346 +08:00 | BLOCK dev-first env-missing | ORANGE_CAT_DATA_DIR 为空 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:58.538 +08:00 | BLOCK dev-first env-other | 测试库路径与本轮不符 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:58.694 +08:00 | BLOCK dev-first run-unset | 尚未设置本轮运行目录 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:58.873 +08:00 | BLOCK dev-first data-missing | 本轮测试目录不存在 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:59.048 +08:00 | BLOCK dev-restart env-missing | ORANGE_CAT_DATA_DIR 为空 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:59.243 +08:00 | BLOCK dev-restart env-other | 测试库路径与本轮不符 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:59.444 +08:00 | BLOCK dev-restart run-unset | 尚未设置本轮运行目录 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:59.646 +08:00 | BLOCK dev-restart data-missing | 本轮测试目录不存在 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:41:59.841 +08:00 | BLOCK product env-missing | ORANGE_CAT_DATA_DIR 为空 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:42:00.026 +08:00 | BLOCK product env-other | 测试库路径与本轮不符 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:42:00.200 +08:00 | BLOCK product run-unset | 尚未设置本轮运行目录 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:42:00.385 +08:00 | BLOCK product data-missing | 本轮测试目录不存在 | launchCalls=0 | pre/post matchedPIDs=[] listen5173=False | default unchanged
+2026-11-20 01:42:00.402 +08:00 | BEGIN dev-first | Start-M0Verification -Mode Dev | data=D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data
+2026-11-20 01:43:00.533 +08:00 | END dev-first | exit=0 | launchCalls=1 | matchedPIDs=[] listen5173=False | default unchanged | dbBytes=12288
+2026-11-20 01:43:00.535 +08:00 | BEGIN dev-restart | Start-M0Verification -Mode Dev | data=D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data
+2026-11-20 01:43:51.470 +08:00 | END dev-restart | exit=0 | launchCalls=1 | matchedPIDs=[] listen5173=False | default unchanged | dbBytes=12288
+2026-11-20 01:43:51.471 +08:00 | BEGIN product | Start-M0Verification -Mode Product | data=D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data
+2026-11-20 01:44:33.087 +08:00 | END product | exit=0 | launchCalls=1 | matchedPIDs=[] listen5173=False | default unchanged | dbBytes=12288
+2026-11-20 01:44:33.092 +08:00 | Finished; negative-other directory empty; no install or model commands.
+
+原生窗口控件摘录（UTC；hwnd 为本次窗口句柄）
+2026-11-19T17:42:59.948Z dev-first hwnd=133970
+15 document (文档) 橘猫 · 离线验证工作台 Value: http://127.0.0.1:5173/ ID: RootWebArea
+115 text (文本) D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data\orange-cat-lab.sqlite
+2026-11-19T17:43:50.987Z dev-restart hwnd=330832
+15 document (文档) 橘猫 · 离线验证工作台 Value: http://127.0.0.1:5173/ ID: RootWebArea
+115 text (文本) D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data\orange-cat-lab.sqlite
+2026-11-19T17:44:32.692Z product hwnd=264782
+14 document (文档) 橘猫 · 离线验证工作台 Value: pet://app/index.html ID: RootWebArea
+115 text (文本) D:\tools\IdeaTool\project\desktop_pet\test-results\M0-WIN-VERIFY\r1\20261120-014157\data\orange-cat-lab.sqlite
