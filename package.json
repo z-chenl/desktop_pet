@@ -1,0 +1,74 @@
+{
+  "name": "orange-cat-desktop",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "description": "橘猫桌宠：离线人格验证工作台（M0）",
+  "author": "Orange Cat Project",
+  "type": "module",
+  "main": "dist/main/index.js",
+  "engines": {
+    "node": ">=24 <27"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:ui": "vite --config vite.config.ts",
+    "build": "node scripts/build.mjs",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "node --import tsx --test packages/persona-core/test/core.test.ts packages/local-model/test/client.test.ts test/service.test.ts",
+    "check": "npm run typecheck && npm test && npm run build",
+    "package:win": "npm run build && electron-builder --win nsis zip --x64 --publish never",
+    "package:mac:arm64": "npm run build && electron-builder --mac dmg zip --arm64 --publish never",
+    "package:mac:x64": "npm run build && electron-builder --mac dmg zip --x64 --publish never",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "vue": "3.5.45"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@vitejs/plugin-vue": "6.0.11",
+    "electron": "45.4.1",
+    "electron-builder": "26.18.0",
+    "esbuild": "0.28.2",
+    "prettier": "3.10.1",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "vite": "8.3.8",
+    "vue-tsc": "3.3.14"
+  },
+  "build": {
+    "appId": "local.orange-cat.workbench",
+    "productName": "Orange Cat Lab",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
+    "artifactName": "OrangeCatLab-${version}-${os}-${arch}.${ext}",
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "mac": {
+      "target": [
+        "dmg",
+        "zip"
+      ],
+      "identity": "-",
+      "hardenedRuntime": false,
+      "notarize": false,
+      "category": "public.app-category.entertainment"
+    }
+  }
+}
