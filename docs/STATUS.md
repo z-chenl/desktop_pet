@@ -6,6 +6,7 @@
 | 范围 | [PLAN r1](iterations/BOOTSTRAP/PLAN.md)，B01–B04 |
 | 分支 | `main`，空仓库首次初始化特例 |
 | M0 基线 | `b777b37644ecea353f0d5d4fda4ac1d44dcb8f51`，42 个包内文件原样入库 |
+| Work 审核目标 | `00b30555cd2db557992404796b07cab76330d97e`，含协作资料、忽略规则与迁移验证记录；推送后已核实远程同号 |
 | 独立审核与验收 | [待 Work 审核](iterations/BOOTSTRAP/REVIEW.md)；用户尚未验收初始化结果 |
 | 执行证据 | [BOOTSTRAP 工作记录](iterations/BOOTSTRAP/WORKLOG.md) |
 

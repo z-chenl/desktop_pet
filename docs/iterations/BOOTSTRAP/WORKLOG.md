@@ -42,3 +42,7 @@ Windows 11 家庭版中文版 x64，系统版本 10.0.26300，PowerShell 7.6.9�
 | 源码静态检查 | 5 份 JSON 解析通过；根包与锁文件的包名、版本、依赖及 Node 范围一致。两个入口脚本分别通过 `node --check scripts/build.mjs` 与 `node --check scripts/dev.mjs` |
 
 本机未安装新依赖，未执行 npm run check、构建、运行 GUI、调用模型或测试安装包。当前 Node 版本与依赖缺失影响运行验证，未阻塞上述迁移检查。下一角色为 Work，提交与远程核实结果见本阶段交接卡。
+
+### Git 交接
+
+B03 资料及 B04 检查证据提交为 `00b30555cd2db557992404796b07cab76330d97e`。推送 main 成功，随后读取远程 refs/heads/main 得到相同完整编号。Work 以该提交为审核目标，核对 B01–B04；后续这次记录提交仅向 STATUS、REVIEW 和本日志登记目标及同步事实。功能开发暂停，等待独立报告。
