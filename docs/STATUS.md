@@ -4,9 +4,9 @@
 
 | 项目 | 记录 |
 | --- | --- |
-| 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 方案待独立审核，实施尚未批准。 |
+| 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 已通过方案审核并取得实施批准。 |
 | 分支与基线 | `verify/m0-local-model`，起点为 `main` 的 M0-WIN-VERIFY 归档提交 `3b2b16cdaed2c17e3ae769e535be4d2e43f9dc25`。 |
-| 下一角色 | 02－独立审核对交接提交中的 PLAN r1 做方案审核。报告交 01 后，由用户决定是否批准具体修订。[审核记录](iterations/M0-LOCAL-MODEL/REVIEW.md) |
+| 当前任务 | 03 执行 L01–L08，按 T01–T10 取证后交 02 审核。U01–U02 由用户另行验收。[批准与处置](iterations/M0-LOCAL-MODEL/REVIEW.md) |
 
 ## M0-WIN-VERIFY 归档
 
