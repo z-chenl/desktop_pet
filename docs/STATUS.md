@@ -6,7 +6,8 @@
 | --- | --- |
 | 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 已通过方案审核并取得实施批准。 |
 | 分支与基线 | `verify/m0-local-model`，起点为 `main` 的 M0-WIN-VERIFY 归档提交 `3b2b16cdaed2c17e3ae769e535be4d2e43f9dc25`。 |
-| 当前任务 | 03 执行 L01–L08，按 T01–T10 取证后交 02 审核。U01–U02 由用户另行验收。[批准与处置](iterations/M0-LOCAL-MODEL/REVIEW.md) |
+| 实施停点 | L01 实测 NVIDIA 驱动 546.01，低于 r1 的 551.61。L02 已核对官方元数据，模型权重尚未下载。本机固定环境的类型检查、41 项模拟测试及构建通过。[分项证据](iterations/M0-LOCAL-MODEL/EVIDENCE.md) |
+| 下一步 | 由用户处理驱动后通知 03 复查，或由 01 提出修订交用户决定。满足条件后继续真实推理、T01–T10 及 02 实施审核。U01–U02 待用户亲自验收。[运行说明](iterations/M0-LOCAL-MODEL/RUNBOOK.md) |
 
 ## M0-WIN-VERIFY 归档
 
