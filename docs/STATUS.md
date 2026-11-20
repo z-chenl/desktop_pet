@@ -6,8 +6,9 @@
 | --- | --- |
 | 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 已通过方案审核并取得实施批准。 |
 | 分支与基线 | `verify/m0-local-model`，起点为 `main` 的 M0-WIN-VERIFY 归档提交 `3b2b16cdaed2c17e3ae769e535be4d2e43f9dc25`。 |
-| 当前任务 | 用户升级 NVIDIA 驱动后，03 在本机复查为 621.24，符合 PLAN 门槛，L02 已恢复。此前固定环境自动检查通过。[分项证据](iterations/M0-LOCAL-MODEL/EVIDENCE.md) |
-| 下一步 | 03 完成固定模型及真实工作台验证，交 02 实施审核；U01–U02 由用户亲自验收。[运行说明](iterations/M0-LOCAL-MODEL/RUNBOOK.md) |
+| 当前任务 | 03 已在驱动 621.24 上使用固定本地模型完成 L01–L08，T01–T10 技术自测通过，待 02 独立实施审核。真实模型受测提交为 `8ba8c4025b09c4f56585db6e19b43040483fad67`，应用版本 `0.1.0-alpha.1`。本阶段无业务代码修复。[分项证据](iterations/M0-LOCAL-MODEL/EVIDENCE.md) |
+| 待决定事项 | 首次推理约 60 秒，部分回复有多余建议或虚构细节。用户对等待和风格尚无验收结论。 |
+| 下一步 | 02 审核草稿 PR #2 交接提交中的技术证据。其后用户按本地说明在接收库 v2 完成 U01 真实断网试聊及 U02 体验验收。[运行说明](iterations/M0-LOCAL-MODEL/RUNBOOK.md) |
 
 ## M0-WIN-VERIFY 归档
 

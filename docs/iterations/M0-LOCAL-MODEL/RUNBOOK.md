@@ -71,7 +71,10 @@ function Start-OwnService {
         Start-Sleep -Milliseconds 250
     } while ((Get-Date) -lt $until)
     Assert-OwnService
-    Write-Host "确认禁云配置已经生效后继续。服务日志：$prefix.err，PID $($svc.Id)"
+    if (!(Select-String -LiteralPath "$prefix.err" -SimpleMatch 'Ollama cloud disabled: true' -Quiet)) {
+        throw "本次启动日志缺少禁云确认，先停止本轮进程：$prefix.err"
+    }
+    Write-Host "已核实本机监听及禁云日志：$prefix.err，PID $($svc.Id)"
 }
 function Open-ModelWorkbench {
     param([Parameter(Mandatory)][ValidateSet('creator','recipient')][string]$Role)
@@ -109,8 +112,44 @@ function Open-ModelWorkbench {
 
 双库备份在相应窗口关闭后复制完整测试目录（含 SQLite 附属文件）。记录角色与相应评估导出的对应关系。只有虚构的脱敏摘要可入库。正常退出窗口并核对该次进程退出；只结束本轮已核实的服务进程，复查 11434、用过的 5173 及本轮子进程。保留其他已有进程及缓存；关闭专用终端后进程级环境失效。
 
-## 5. 用户验收交接条件
+## 5. 用户验收 · Work 技术审核后的本机操作
 
-待技术交付和 Work 审核后，将已验证的 recipient 绝对路径、服务日志核验例子和上述启动块保存在本机。当前 recipient 为空，U01 尚无可读回的 v2。
+03 已用普通构建产物打开接收库。在“橘猫 · 离线验证工作台”中读到 v2、朋友 A 的一条虚构饮料代号记忆，以及下列数据库。此库可直接读回。
 
-用户先退出本阶段窗口和服务，自行断开所有外网出口、保留 loopback。在新终端恢复第 1 节配置与第 3 节函数，仅核对本地已准备的程序、权重和接收库；断网时直接使用本机服务及产物，跳过联网查询、安装和拉取。读回同一 v2，完成一条新中文对话及一次与接收方记忆相关的提问，记录断网方式、窗口路径和结果，正常退出后自行恢复网络。U02 由用户记录等待与资源占用是否可接受、中文回复的实际感受及下一步选择。
+```text
+D:\tools\IdeaTool\project\desktop_pet\test-results\M0-LOCAL-MODEL\r1\20261120-131021\recipient\data\orange-cat-lab.sqlite
+```
+
+**U01 操作。** 先在本机打开本文件，保存其他需要网络的工作。关闭本阶段工作台及自有服务。由用户自行断开可通外网的 Wi-Fi、网线及其他出口，保留本机环回，记下断开了哪些连接。下面所有命令在同一个新 PowerShell 7 终端运行。
+
+1. 复制执行第 1 节的整块命令，再复制执行第 3 节的整块函数定义。依赖、运行时、模型和构建产物已备齐。离线过程只使用本地文件及 127.0.0.1。
+2. 执行下面整块命令。缺少既有接收库时会停止。11434 的监听、自有进程、禁云日志、实际模型 digest、接收目录都经核对才会打开窗口。
+
+~~~ps1
+& {
+    $env:ORANGE_CAT_DATA_DIR = Join-Path $round 'recipient\data'
+    $db = Join-Path $env:ORANGE_CAT_DATA_DIR 'orange-cat-lab.sqlite'
+    if (!(Test-Path -LiteralPath $db -PathType Leaf) -or (Get-Item -LiteralPath $db).Length -eq 0) { throw '接收库缺失或为空' }
+    Start-OwnService
+    Open-ModelWorkbench recipient
+}
+~~~
+
+3. 核对窗口显示 v2，在“记忆与交付”展开“本地数据位置”，与上面的绝对路径逐项核对。选择朋友 A，在“试聊与评估”使用人格模式发一条全新的中文问题；再问“我的验证饮料代号是什么？”并对照该档案的记忆。记录断网方式、两个问题的实际回复或错误、等待感受。将截图和原文留在本机，只向 01／03 转交必要摘要。
+4. 正常关闭已加载的工作台，终端会恢复提示符。如要在同一服务读回，可在原终端保持接收库环境变量并运行 `Open-ModelWorkbench recipient`。本次完成后执行下列收尾，再关闭专用终端，自行恢复网络。若启动未成功，端口归属不符时保留现场，交 03 核对。
+
+~~~ps1
+& {
+    Assert-OwnService
+    if ((Invoke-RestMethod "$api/api/ps").models.name -contains $tag) {
+        & $cli stop $tag
+        if ($LASTEXITCODE) { throw '本轮模型卸载失败' }
+    }
+    Assert-OwnService
+    $svc.Kill()
+    if (!$svc.WaitForExit(10000)) { throw '自有服务仍在运行' }
+    if (Get-NetTCPConnection -LocalPort 11434 -State Listen -ErrorAction SilentlyContinue) { throw '11434 仍有监听，请核对归属' }
+}
+~~~
+
+**U02 反馈。** 请分别说明等待及电脑占用是否可接受，哪一句听起来自然、哪一句需要改，以及是否希望进入少量真实说话样例阶段。U01 的断网结果和 U02 的体验结论分别由用户给出。
