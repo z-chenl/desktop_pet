@@ -1,5 +1,15 @@
 # 当前状态
 
+## M0-LOCAL-MODEL
+
+| 项目 | 记录 |
+| --- | --- |
+| 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 方案待独立审核，实施尚未批准。 |
+| 分支与基线 | `verify/m0-local-model`，起点为 `main` 的 M0-WIN-VERIFY 归档提交 `3b2b16cdaed2c17e3ae769e535be4d2e43f9dc25`。 |
+| 下一角色 | 02－独立审核对交接提交中的 PLAN r1 做方案审核。报告交 01 后，由用户决定是否批准具体修订。[审核记录](iterations/M0-LOCAL-MODEL/REVIEW.md) |
+
+## M0-WIN-VERIFY 归档
+
 | 项目 | 记录 |
 | --- | --- |
 | 阶段 | M0-WIN-VERIFY 已合并至 `main` 并归档。独立审核及用户运行效果验收通过。 |
@@ -11,6 +21,5 @@
 | 已知事项 | 窗口刚创建即主动关闭可能误报启动失败并以 1 退出。该项未修复，属非阻塞事项。 |
 | 用户验收 | 朋友 B 的记忆经确认删除后从 1 条变为 0 条。用户确认重启后的保留和删除结果正常。[用户验收记录](iterations/M0-WIN-VERIFY/REVIEW.md#用户运行效果验收) |
 | 合并记录 | [PR #1](https://github.com/z-chenl/desktop_pet/pull/1) 的验收记录提交为 `da069b9bbfe0be673ce0fcac7e1cf6de3504a34c`，合并提交为 [`51ccb3f1ec1d48e96333b764ed16bccf2d1840a8`](https://github.com/z-chenl/desktop_pet/commit/51ccb3f1ec1d48e96333b764ed16bccf2d1840a8)。 |
-| 后续 | 停在本阶段归档点，等待用户另行决定。 |
 
 BOOTSTRAP 已验收并归档，范围为 B01–B04。[BOOTSTRAP 审核与验收](iterations/BOOTSTRAP/REVIEW.md)
