@@ -46,3 +46,11 @@ Work 原文及 03 单独处置见 [REVIEW](REVIEW.md)。A10 独立复核通过�
 03 在本机 Windows 仓库核对了用户转交的截图及原话。截图显示朋友 B 的记忆经确认删除后从 1 条变为 0 条，重启后的保留与删除结果由用户确认。[用户原话与匿名化观察](REVIEW.md#用户运行效果验收)
 
 记录前，本地工作分支、远程分支与草稿 PR #1 均指向 `799c9acdb9c54c6614f00fe09ed9498bba87ab5f`。本次仅更新 REVIEW、WORKLOG 和 STATUS，按文件清单核对差异；记录提交与远程核验见本次交接卡。当前待合并，窗口提前关闭的已知非阻塞事项继续保留。下一步由用户决定是否授权合并 PR #1。
+
+## W07 · 合并与归档 · 2026-11-20
+
+用户在本次交接中授权合并 PR #1 并归档 M0-WIN-VERIFY，指定 PR 顶端提交为 `da069b9bbfe0be673ce0fcac7e1cf6de3504a34c`。03 在本机 Windows 仓库核对本地分支、远程分支与 PR 顶端一致，目标为 `main`。结束草稿状态后再次核对，并将该 SHA 作为 GitHub 执行合并的条件。
+
+GitHub 确认 [PR #1](https://github.com/z-chenl/desktop_pet/pull/1) 已合并。[合并提交](https://github.com/z-chenl/desktop_pet/commit/51ccb3f1ec1d48e96333b764ed16bccf2d1840a8) 为 `51ccb3f1ec1d48e96333b764ed16bccf2d1840a8`，两个父提交依次为原 `main` 的 `ba8a687b06a53c187ab8c6732b93a57de542fe74` 和上述获准提交。已核实当时的远程 `main` 指向合并提交，其文件树与获准提交相同。
+
+本地 `main` 快进后，仅将 STATUS 和本日志作为归档记录另行提交。根目录原方案附件保留在工作区。归档提交与远程最终核验结果见交接卡。当前停在 M0-WIN-VERIFY 归档点。
