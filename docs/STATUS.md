@@ -2,7 +2,9 @@
 
 ## M0-PERSONA-STYLE
 
-**PLAN r1 方案审核通过，用户已批准实施。** Work 审核目标为 `a1d5b22425ed4b1536874a316803a36bd405e18c`。S01 进入资料和环境准备，先交用户填写首批约 6 组真实样例及逐条用途。`verify/m0-persona-style` 的草稿 PR #3 以 `verify/m0-local-model` 为目标。U01–U03 待用户分别确认。[PLAN r1](iterations/M0-PERSONA-STYLE/PLAN.md) · [审核及批准](iterations/M0-PERSONA-STYLE/REVIEW.md)
+**S01 等待用户资料。** PLAN r1 已通过 Work 方案审核并获用户实施批准，审核目标为 `a1d5b22425ed4b1536874a316803a36bd405e18c`，批准记录为 `4fd5dfbcf43bd43d3ae67c08ac52faa9c234b63a`。03 已完成空模板、本地私有目录、固定环境及 A 原件预检；当前生成尝试 0。下一步由用户填写首批约 6 组真实表达，并逐条选择用途。U01–U03 待用户分别确认。[运行与填写说明](iterations/M0-PERSONA-STYLE/RUNBOOK.md) · [S01 证据](iterations/M0-PERSONA-STYLE/EVIDENCE.md) · [审核及批准](iterations/M0-PERSONA-STYLE/REVIEW.md)
+
+工作分支 `verify/m0-persona-style` 的[草稿 PR #3](https://github.com/z-chenl/desktop_pet/pull/3) 继续以 `verify/m0-local-model` 为目标。
 
 ## M0-LOCAL-MODEL
 
