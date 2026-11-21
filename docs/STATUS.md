@@ -2,7 +2,7 @@
 
 ## M0-PERSONA-STYLE
 
-**待独立方案审核；实施尚未批准。** 01 的 PLAN r1 和研究稿已按用户指定摘要入库。`verify/m0-persona-style` 从旧分支 D01 记录提交 `02c46a9278fa329849c84fdf6b07830894a52db9` 建立，草稿 PR 以 `verify/m0-local-model` 为目标。下一步交 02 对交接卡指定的完整提交审核方案，再由用户决定具体修订是否实施。[PLAN r1](iterations/M0-PERSONA-STYLE/PLAN.md) · [研究稿](iterations/M0-PERSONA-STYLE/RESEARCH-r1.md) · [审核入口](iterations/M0-PERSONA-STYLE/REVIEW.md)
+**PLAN r1 方案审核通过，用户已批准实施。** Work 审核目标为 `a1d5b22425ed4b1536874a316803a36bd405e18c`。S01 进入资料和环境准备，先交用户填写首批约 6 组真实样例及逐条用途。`verify/m0-persona-style` 的草稿 PR #3 以 `verify/m0-local-model` 为目标。U01–U03 待用户分别确认。[PLAN r1](iterations/M0-PERSONA-STYLE/PLAN.md) · [审核及批准](iterations/M0-PERSONA-STYLE/REVIEW.md)
 
 ## M0-LOCAL-MODEL
 
