@@ -6,10 +6,10 @@
 | --- | --- |
 | 阶段 | Windows 真实本地模型与人格流程验证。[PLAN r1](iterations/M0-LOCAL-MODEL/PLAN.md) 已通过方案审核并取得实施批准。 |
 | 分支与基线 | `verify/m0-local-model`，起点为 `main` 的 M0-WIN-VERIFY 归档提交 `3b2b16cdaed2c17e3ae769e535be4d2e43f9dc25`。 |
-| 当前状态 | **技术审核通过；U01、U02 待用户验收**。Work 对 `32f766ebb6826afb652a00887cab7e1b4aa8f4f4` 判定 T01–T10 全部通过，阻塞项为零，无需整改复核。[独立审核报告与处置](iterations/M0-LOCAL-MODEL/REVIEW.md) |
+| 当前状态 | **技术审核通过；用户报告断网新对话和记忆读取成功**。Work 审核目标为 `32f766ebb6826afb652a00887cab7e1b4aa8f4f4`，T01–T10 全部通过。用户未单列断网后服务重启步骤。[审核报告与用户反馈](iterations/M0-LOCAL-MODEL/REVIEW.md) |
 | 受测对象 | 真实模型受测提交 `8ba8c4025b09c4f56585db6e19b43040483fad67`，应用版本 `0.1.0-alpha.1`，驱动 621.24。[分项证据](iterations/M0-LOCAL-MODEL/EVIDENCE.md) |
-| 体验待评价 | 首次推理约 60 秒。删去记忆后仍虚构饮料细节、答对代号后附加多余建议，两项观察保留给 U02。 |
-| 下一步 | 用户按第 5 节自行断开外网，读回既有接收库 v2，分别把 U01 试聊结果和 U02 体验意见交回 01。[离线操作说明](iterations/M0-LOCAL-MODEL/RUNBOOK.md) |
+| U02 体验 | 用户接受当前简单对话的等待时间，认为自然度与本人风格未达目标。资源占用没有单独的用户评价。 |
+| 阶段衔接 | 用户确认进入说话风格方案准备。旧阶段整体关闭待决定，[PR #2](https://github.com/z-chenl/desktop_pet/pull/2) 仍为未合并草稿。 |
 
 ## M0-WIN-VERIFY 归档
 
