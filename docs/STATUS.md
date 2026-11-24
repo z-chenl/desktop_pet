@@ -2,7 +2,7 @@
 
 ## M0-PERSONA-STYLE
 
-**S01 等待补充开发素材。** 首批 6 个场景已由用户核对。4 组选段已登记为开发素材，用户允许它们作为给指定接收者的角色包正例候选；另 2 组的原选段暂不采用，可重选或跳过。当前计入 4/30 组，生成尝试 0。下一步由用户补充不同场景及关系类型；规则、最终两条正例及 U01–U03 整体验收均待后续确认。[本阶段工作记录](iterations/M0-PERSONA-STYLE/WORKLOG.md)
+**S01 等待补充开发素材。** 首批 6 个场景均已登记：4 组沿用初选，2 组按用户重选的本人发言及前后文范围登记。用户逐组允许所选本人发言作为给指定接收者的角色包正例候选。当前计入 6/30 组，距离方案要求还差 24 组，生成尝试 0。下一批继续收集不同场景的本人表达，开发素材整体须覆盖至少两种关系。规则、最终两条正例及 U01–U03 的验收仍待后续确认。[本阶段工作记录](iterations/M0-PERSONA-STYLE/WORKLOG.md)
 
 PLAN r1 已通过 Work 方案审核并获用户实施批准。审核目标为 `a1d5b22425ed4b1536874a316803a36bd405e18c`，批准记录为 `4fd5dfbcf43bd43d3ae67c08ac52faa9c234b63a`。03 已完成固定环境及 A 原件预检。[运行说明](iterations/M0-PERSONA-STYLE/RUNBOOK.md) · [S01 预检](iterations/M0-PERSONA-STYLE/EVIDENCE.md) · [审核及批准](iterations/M0-PERSONA-STYLE/REVIEW.md)
 
